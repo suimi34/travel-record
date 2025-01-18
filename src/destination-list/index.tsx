@@ -74,7 +74,14 @@ export default function TravelFinder() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredDestinations.map(dest => (
           <Card key={dest.id} className="overflow-hidden">
-            <Image src={dest.image} alt={dest.name} width={300} height={200} className="w-full h-48 object-cover" />
+            <Image
+              src={dest.image}
+              alt={dest.name}
+              width={300}
+              height={200}
+              className="w-full h-48 object-cover"
+              priority
+            />
             <CardHeader>
               <CardTitle className="flex items-center">
                 <MapPin className="mr-2" size={18} />
