@@ -9,8 +9,10 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { MapPin, Sun, Umbrella, Mountain } from 'lucide-react'
 
+const KYUFUN_IMAGE = "/kyufun_taiwan.jpg";
+
 const destinations = [
-  { id: 1, name: "Jiufen, Taiwan", type: "beach", weather: "tropical", image: "/kyufun_taiwan.jpg" },
+  { id: 1, name: "Jiufen, Taiwan", type: "beach", weather: "tropical", image: KYUFUN_IMAGE },
 ]
 
 export default function TravelFinder() {
