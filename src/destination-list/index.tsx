@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
@@ -9,12 +10,7 @@ import { Label } from "@/components/ui/label"
 import { MapPin, Sun, Umbrella, Mountain } from 'lucide-react'
 
 const destinations = [
-  { id: 1, name: "Bali, Indonesia", type: "beach", weather: "tropical", image: "/placeholder.svg?height=200&width=300" },
-  { id: 2, name: "Kyoto, Japan", type: "cultural", weather: "temperate", image: "/placeholder.svg?height=200&width=300" },
-  { id: 3, name: "Santorini, Greece", type: "beach", weather: "mediterranean", image: "/placeholder.svg?height=200&width=300" },
-  { id: 4, name: "Zermatt, Switzerland", type: "mountain", weather: "cold", image: "/placeholder.svg?height=200&width=300" },
-  { id: 5, name: "New York City, USA", type: "city", weather: "varied", image: "/placeholder.svg?height=200&width=300" },
-  { id: 6, name: "Machu Picchu, Peru", type: "cultural", weather: "varied", image: "/placeholder.svg?height=200&width=300" },
+  { id: 1, name: "Jiufen, Taiwan", type: "beach", weather: "tropical", image: "/kyufun_taiwan.jpg?height=200&width=300" },
 ]
 
 export default function TravelFinder() {
@@ -78,7 +74,7 @@ export default function TravelFinder() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredDestinations.map(dest => (
           <Card key={dest.id} className="overflow-hidden">
-            <img src={dest.image} alt={dest.name} className="w-full h-48 object-cover" />
+            <Image src={dest.image} alt={dest.name} width={300} height={200} className="w-full h-48 object-cover" />
             <CardHeader>
               <CardTitle className="flex items-center">
                 <MapPin className="mr-2" size={18} />
