@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "バックパッカー中の訪問先リスト",
   description: "2016年4月〜10月のバックパッカー中の訪問した都市です。",
+  keywords: ["バックパッカー", "旅行", "海外旅行", "世界一周", "アジア", "東南", "ヨーロッパ", "北米", "北中米", "北欧", "キューバ", "ロシア", "イラン", "ウクライナ"],
 };
 
 export default function RootLayout({
