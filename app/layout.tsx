@@ -29,7 +29,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <GoogleTagManager gtmId="GTM-PL4H9LVQ" />
+      <GoogleTagManager gtmId="G-VF4HW6VM4Z" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
