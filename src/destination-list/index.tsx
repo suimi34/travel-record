@@ -8,25 +8,16 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { MapPin, Sun, Umbrella, Mountain } from 'lucide-react'
+import Link from 'next/link'
 
-const SEOUL_IMAGE = "/seoul_korea.jpg";
-const KYUFUN_IMAGE = "/kyufun_taiwan.jpg";
-const MANILA_IMAGE = "/manila_philippines.jpg";
-const VANCOUVER_IMAGE = "/vancouver_canada.jpg";
-
-const destinations = [
-  { id: 1, name: "Seoul, Korea", type: "city", weather: "tropical", image: SEOUL_IMAGE },
-  { id: 2, name: "Jiufen, Taiwan", type: "beach", weather: "tropical", image: KYUFUN_IMAGE },
-  { id: 3, name: "Manila, Philippines", type: "beach", weather: "tropical", image: MANILA_IMAGE },
-  { id: 4, name: "Vancouver, Canada", type: "city", weather: "cold", image: VANCOUVER_IMAGE },
-]
+import { ALL_DESTINATIONS } from '../all-destinations'
 
 export default function TravelFinder() {
   const [typeFilter, setTypeFilter] = useState("all")
   const [weatherFilter, setWeatherFilter] = useState("all")
   const [searchTerm, setSearchTerm] = useState("")
 
-  const filteredDestinations = destinations.filter(dest =>
+  const filteredDestinations = ALL_DESTINATIONS.filter(dest =>
     (typeFilter === "all" || dest.type === typeFilter) &&
     (weatherFilter === "all" || dest.weather === weatherFilter) &&
     dest.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -106,7 +97,9 @@ export default function TravelFinder() {
               <p>Weather: {dest.weather.charAt(0).toUpperCase() + dest.weather.slice(1)}</p>
             </CardContent>
             <CardFooter>
-              <Button>Learn More</Button>
+              <Link href={`/city/${dest.name.split(",")[0].toLowerCase()}`}>
+                <Button>Learn More</Button>
+              </Link>
             </CardFooter>
           </Card>
         ))}
