@@ -97,7 +97,7 @@ export default function TravelFinder() {
               <p>Weather: {dest.weather.charAt(0).toUpperCase() + dest.weather.slice(1)}</p>
             </CardContent>
             <CardFooter>
-              <Link href={`/city/${dest.name.split(",")[0].toLowerCase()}`}>
+              <Link href={`/city/${dest.pathName}`}>
                 <Button>Learn More</Button>
               </Link>
             </CardFooter>
