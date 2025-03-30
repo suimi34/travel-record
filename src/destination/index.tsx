@@ -3,8 +3,34 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Image from 'next/image';
 
-export default function Destination(props: { dest: { id: number; name: string; type: string; weather: string; image: string } }) {
-  const { dest } = props;
+import { getSignedUrl } from "@/lib/s3";
+
+interface Destination {
+  id: number;
+  name: string;
+  type: string;
+  weather: string;
+  image: string;
+  pathName: string;
+}
+
+export default async function Destination(props: { dest: Destination, imageKeys?: string[] }) {
+  const { dest, imageKeys } = props;
+
+  let initialImageKeys: string[] = [];
+
+  if (imageKeys && imageKeys.length > 0) {
+    // shuffle
+    const shuffledImagesKeys = imageKeys.toSorted(() => Math.random() - Math.random());
+    for (let i = 0; i < 9; i++) {
+      const key = shuffledImagesKeys.shift();
+      if (key) {
+        initialImageKeys.push(key)
+      }
+    }
+  }
+
+  const imageUrls = await Promise.all(initialImageKeys.map((key) => getSignedUrl(key)));
 
   return (
     <div className="container mx-auto p-4">
@@ -26,6 +52,20 @@ export default function Destination(props: { dest: { id: number; name: string; t
             height={200}
           />
         </div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {imageUrls.map((url, index) => (
+          <div key={index} className="relative">
+            <Image
+              src={url}
+              alt={`Image ${index + 1}`}
+              className="w-full h-[300px] object-cover rounded-lg"
+              width={300}
+              height={200}
+            />
+          </div>
+        ))}
       </div>
     </div>
   )
