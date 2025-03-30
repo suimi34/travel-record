@@ -8,7 +8,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string;
 
   if (!dest) return;
 
-  let objects = [] as string[];
+  const objects = [] as string[];
   const directoryPrefix = dest.pathName.toLowerCase();
   const s3Objects = await fetchObjects(directoryPrefix)
 

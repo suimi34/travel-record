@@ -17,7 +17,7 @@ interface Destination {
 export default async function Destination(props: { dest: Destination, imageKeys?: string[] }) {
   const { dest, imageKeys } = props;
 
-  let initialImageKeys: string[] = [];
+  const initialImageKeys: string[] = [];
 
   if (imageKeys && imageKeys.length > 0) {
     // shuffle
