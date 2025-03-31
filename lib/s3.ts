@@ -69,7 +69,7 @@ export async function getSignedUrl(key: string) {
   });
 
   const s3ObjectUrl = parseUrl(`https://${BUCKET_NAME}.s3.${AWS_REGION}.amazonaws.com/${key}`);
-  const url = await presigner.presign(new HttpRequest(s3ObjectUrl));
+  const url = await presigner.presign(new HttpRequest(s3ObjectUrl), { expiresIn: 604800 }); // 7 days
 
   return formatUrl(url);
 
