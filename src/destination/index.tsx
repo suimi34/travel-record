@@ -2,8 +2,8 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Image from 'next/image';
-
 import { getSignedUrl } from "@/lib/s3";
+import ReadMoreWrapper from "@/src/destination/read-more-wrapper";
 
 interface Destination {
   id: number;
@@ -17,6 +17,7 @@ interface Destination {
 export default async function Destination(props: { dest: Destination, imageKeys?: string[] }) {
   const { dest, imageKeys } = props;
 
+  let showReadMore = false;
   const initialImageKeys: string[] = [];
 
   if (imageKeys && imageKeys.length > 0) {
@@ -28,6 +29,7 @@ export default async function Destination(props: { dest: Destination, imageKeys?
         initialImageKeys.push(key)
       }
     }
+    showReadMore = imageKeys.length > 0;
   }
 
   const imageUrls = await Promise.all(initialImageKeys.map((key) => getSignedUrl(key)));
@@ -67,6 +69,7 @@ export default async function Destination(props: { dest: Destination, imageKeys?
           </div>
         ))}
       </div>
+      <ReadMoreWrapper showReadMore={showReadMore} />
     </div>
   )
 }
