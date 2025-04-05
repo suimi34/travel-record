@@ -17,8 +17,9 @@ interface Destination {
 export default async function Destination(props: { dest: Destination, imageKeys?: string[] }) {
   const { dest, imageKeys } = props;
 
-  let showReadMore = false;
   const initialImageKeys: string[] = [];
+  let readMoreImageKeys: string[] = [];
+  let showReadMore = false;
 
   if (imageKeys && imageKeys.length > 0) {
     // shuffle
@@ -29,6 +30,7 @@ export default async function Destination(props: { dest: Destination, imageKeys?
         initialImageKeys.push(key)
       }
     }
+    readMoreImageKeys = shuffledImagesKeys.filter((key) => !initialImageKeys.includes(key));
     showReadMore = imageKeys.length > 0;
   }
 
@@ -68,8 +70,8 @@ export default async function Destination(props: { dest: Destination, imageKeys?
             />
           </div>
         ))}
+        <ReadMoreWrapper showReadMore={showReadMore} imageKeys={readMoreImageKeys} />
       </div>
-      <ReadMoreWrapper showReadMore={showReadMore} />
     </div>
   )
 }

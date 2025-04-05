@@ -72,5 +72,4 @@ export async function getSignedUrl(key: string) {
   const url = await presigner.presign(new HttpRequest(s3ObjectUrl), { expiresIn: 604800 }); // 7 days
 
   return formatUrl(url);
-
 }
