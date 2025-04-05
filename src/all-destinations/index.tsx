@@ -10,6 +10,9 @@ const LOS_ANGELS_IMAGE = "/los_angels_us.jpg";
 const WASHINGTON_DC_IMAGE = "/washington_dc_us.jpg";
 const NEW_YORK_IMAGE = "/new_york_us.jpg";
 const BOSTON_IMAGE = "/boston_us.jpg";
+const MEXICO_CITY_IMAGE = "/mexico_city_mexico.jpg";
+const HABANA_IMAGE = "/habana_cuba.jpg";
+const CANCUN_IMAGE = "/cancun_mexico.jpg";
 
 export const ALL_DESTINATIONS = [
   { id: 1, pathName: "Seoul", name: "Seoul, Korea", type: "city", weather: "varied", image: SEOUL_IMAGE },
@@ -24,4 +27,7 @@ export const ALL_DESTINATIONS = [
   { id: 10, pathName: "WashingtonDC", name: "Washington D.C., United States", type: "city", weather: "varied", image: WASHINGTON_DC_IMAGE },
   { id: 11, pathName: "NewYork", name: "New York, United States", type: "city", weather: "varied", image: NEW_YORK_IMAGE },
   { id: 12, pathName: "Boston", name: "Boston, United States", type: "city", weather: "varied", image: BOSTON_IMAGE },
+  { id: 13, pathName: "MexicoCity", name: "Mexico City, Mexico", type: "city", weather: "tropical", image: MEXICO_CITY_IMAGE },
+  { id: 14, pathName: "Habana", name: "Habana, Cuba", type: "city", weather: "tropical", image: HABANA_IMAGE },
+  { id: 15, pathName: "Cancun", name: "Cancun, Mexico", type: "beach", weather: "tropical", image: CANCUN_IMAGE },
 ]
