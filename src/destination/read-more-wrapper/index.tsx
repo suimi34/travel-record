@@ -13,7 +13,7 @@ export default function ReadMoreWrapper(props: { showReadMore: boolean; imageKey
   // Fetch signed URL from Lambda function because Next.js static export does not support server actions
   const getSignedUrlLambda = async (key: string) => {
     try {
-      const response = await fetch(`${process.env.S3_GET_SIGNED_URL_API_END_POINT}/getSignedUrl?key=${key}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_S3_GET_SIGNED_URL_API_END_POINT}/getSignedUrl?key=${key}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
