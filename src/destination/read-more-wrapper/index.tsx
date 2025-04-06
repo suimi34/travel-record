@@ -16,7 +16,8 @@ export default function ReadMoreWrapper(props: { showReadMore: boolean; imageKey
       const response = await fetch(`${process.env.NEXT_PUBLIC_S3_GET_SIGNED_URL_API_END_POINT}/getSignedUrl?key=${key}`, {
         method: 'GET',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'x-api-key': process.env.NEXT_PUBLIC_S3_GET_SIGNED_URL_API_KEY || '',
         }
       })
       if (!response.ok) {
