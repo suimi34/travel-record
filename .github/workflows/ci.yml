@@ -24,6 +24,8 @@ jobs:
           S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
           IAM_ACCESS_KEY: ${{ secrets.IAM_ACCESS_KEY }}
           IAM_SECRET_ACCESS_KEY: ${{ secrets.IAM_SECRET_ACCESS_KEY }}
+          NEXT_PUBLIC_S3_GET_SIGNED_URL_API_END_POINT: ${{ secrets.NEXT_PUBLIC_S3_GET_SIGNED_URL_API_END_POINT }}
+          NEXT_PUBLIC_S3_GET_SIGNED_URL_API_KEY: ${{ secrets.NEXT_PUBLIC_S3_GET_SIGNED_URL_API_KEY }}
         run: |
           npm clean-install --progress=false
           npx next build
