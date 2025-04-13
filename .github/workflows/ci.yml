@@ -5,11 +5,28 @@ on:
   workflow_dispatch:
 
 jobs:
-  test_schedule:
+  deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    name: Deploy to Cloudflare Pages
+
     steps:
       - uses: actions/checkout@v3
         with:
           ref: main
       - name: Every time
         run: echo "This step will always run"
+      - name: Build
+        run: |
+          npm clean-install --progress=false
+          npx next build
+      - name: Publish
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: travel-record
+          directory: ./out
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
