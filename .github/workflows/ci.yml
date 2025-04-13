@@ -17,7 +17,7 @@ jobs:
         with:
           ref: main
       - name: Every time
-        run: echo "This step will always run"
+        run: "node --version"
       - name: Build
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
@@ -31,9 +31,6 @@ jobs:
           npx next build
       - name: Publish
         uses: cloudflare/pages-action@v1
-        env:
-          NEXT_PUBLIC_S3_GET_SIGNED_URL_API_END_POINT: ${{ secrets.NEXT_PUBLIC_S3_GET_SIGNED_URL_API_END_POINT }}
-          NEXT_PUBLIC_S3_GET_SIGNED_URL_API_KEY: ${{ secrets.NEXT_PUBLIC_S3_GET_SIGNED_URL_API_KEY }}
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
