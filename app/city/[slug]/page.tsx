@@ -15,7 +15,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string;
   if (s3Objects) {
     s3Objects.forEach((object) => {
       if (object.Key && object.Key.match(/\.jpg$|\.JPG$|\.jpeg$|\.JPEG$|\.png$|\.PNG$|\.gif$|\.GIF$|\.CR$|\.CR2$/)) {
-        // 画像ファイルのみをフィルタリング
+        // 画像ファイルのみをフィルタリングする
         objects.push(object.Key as string);
       }
     })
