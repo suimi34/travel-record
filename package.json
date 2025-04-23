@@ -15,7 +15,7 @@
     "@aws-sdk/s3-request-presigner": "^3.787.0",
     "@aws-sdk/url-parser": "^3.370.0",
     "@aws-sdk/util-format-url": "^3.775.0",
-    "@next/third-parties": "^15.2.5",
+    "@next/third-parties": "^15.3.1",
     "@radix-ui/react-label": "^2.1.1",
     "@radix-ui/react-select": "^2.2.2",
     "@radix-ui/react-slot": "^1.1.1",
