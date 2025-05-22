@@ -9,6 +9,7 @@ const ReadMore = dynamic(() => import("../read-more"), { ssr: false });
 export default function ReadMoreWrapper(props: { showReadMore: boolean; imageKeys: string[] }) {
   const [imageUrls, setImageUrls] = useState<string[]>([]);
   const [availableImageKeys, setAvailableImageKeys] = useState<string[]>(props.imageKeys);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Fetch signed URL from Lambda function because Next.js static export does not support server actions
   const getSignedUrlLambda = async (key: string) => {
@@ -39,13 +40,15 @@ export default function ReadMoreWrapper(props: { showReadMore: boolean; imageKey
     const remainingImageKeys = availableImageKeys.filter((key) => !appendingKeys.includes(key))
     setAvailableImageKeys(remainingImageKeys);
   }
-  const handleClick = () => {
-    appendImageUrls();
+  const handleClick = async () => {
+    setIsLoading(true);
+    await appendImageUrls();
+    setIsLoading(false);
   }
 
   return (
     <>
-      <ReadMore showReadMore={props.showReadMore} handleClick={handleClick} />
+      <ReadMore showReadMore={props.showReadMore} isLoading={isLoading} handleClick={handleClick} />
       {imageUrls.map((url, index) => (
         <div key={index} className="relative">
           <Image
