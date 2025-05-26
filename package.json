@@ -12,7 +12,7 @@
     "@aws-sdk/client-s3": "^3.816.0",
     "@aws-sdk/hash-node": "^3.370.0",
     "@aws-sdk/protocol-http": "^3.370.0",
-    "@aws-sdk/s3-request-presigner": "^3.816.0",
+    "@aws-sdk/s3-request-presigner": "^3.817.0",
     "@aws-sdk/url-parser": "^3.370.0",
     "@aws-sdk/util-format-url": "^3.775.0",
     "@next/third-parties": "^15.3.2",
