@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import useScrollPosition from "../../hooks/use-scroll-position";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export default function ReadMore(props: { showReadMore: boolean, isLoading: boolean, handleClick: () => void }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -30,6 +31,7 @@ export default function ReadMore(props: { showReadMore: boolean, isLoading: bool
   }
 
   const handleClick = () => {
+    sendGAEvent('event', 'click', { value: 'read_more' });
     props.handleClick();
   }
 
