@@ -31,7 +31,7 @@ export default function ReadMore(props: { showReadMore: boolean, isLoading: bool
   }
 
   const handleClick = () => {
-    sendGAEvent('event', 'click', { value: 'read_more' });
+    sendGAEvent('event', 'read_more', { value: 'cityName' });
     props.handleClick();
   }
 
