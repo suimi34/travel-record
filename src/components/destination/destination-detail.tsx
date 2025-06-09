@@ -3,16 +3,9 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Image from 'next/image';
 import { getSignedUrl } from "@/lib/s3";
-import ReadMoreWrapper from "@/src/destination/read-more-wrapper";
-
-interface Destination {
-  id: number;
-  name: string;
-  type: string;
-  weather: string;
-  image: string;
-  pathName: string;
-}
+import ReadMoreWrapper from "./read-more-wrapper";
+import type { Destination } from "../../types";
+import { IMAGE_STYLES } from "../../constants/styles";
 
 export default async function Destination(props: { dest: Destination, imageKeys?: string[] }) {
   const { dest, imageKeys } = props;
@@ -23,7 +16,7 @@ export default async function Destination(props: { dest: Destination, imageKeys?
 
   if (imageKeys && imageKeys.length > 0) {
     // shuffle
-    const shuffledImagesKeys = imageKeys.toSorted(() => Math.random() - Math.random());
+    const shuffledImagesKeys = [...imageKeys].sort(() => Math.random() - 0.5);
     for (let i = 0; i < 9; i++) {
       const key = shuffledImagesKeys.shift();
       if (key) {
@@ -51,7 +44,7 @@ export default async function Destination(props: { dest: Destination, imageKeys?
           <Image
             src={dest.image || "/placeholder.svg"}
             alt={dest.name}
-            className="w-full h-[400px] object-cover rounded-lg"
+            className={IMAGE_STYLES.hero}
             width={300}
             height={200}
           />
@@ -64,7 +57,7 @@ export default async function Destination(props: { dest: Destination, imageKeys?
             <Image
               src={url}
               alt={`Image ${index + 1}`}
-              className="w-full h-[300px] object-cover rounded-lg"
+              className={IMAGE_STYLES.gallery}
               width={300}
               height={200}
             />

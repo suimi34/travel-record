@@ -1,4 +1,4 @@
-import DestinationList from "@/src/destination-list";
+import DestinationList from "@/src/components/destination-list";
 
 export default function Home() {
   return (

@@ -1,10 +1,11 @@
-import Destination from "@/src/destination";
-import { ALL_DESTINATIONS } from "@/src/all-destinations";
+import Destination from "@/src/components/destination";
+import { ALL_DESTINATIONS } from "@/src/data/destinations";
+import type { Destination as DestinationType } from "@/src/types";
 import { fetchObjects } from "@/lib/s3";
 
 export default async function Page({ params }: { params: Promise<{ slug: string; }> }) {
   const { slug } = await params
-  const dest = ALL_DESTINATIONS.find((dest) => dest.pathName === slug)
+  const dest = ALL_DESTINATIONS.find((dest: DestinationType) => dest.pathName === slug)
 
   if (!dest) return;
 
@@ -27,7 +28,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string;
 }
 
 export async function generateStaticParams() {
-  return ALL_DESTINATIONS.map((city) => ({
+  return ALL_DESTINATIONS.map((city: DestinationType) => ({
     slug: city.pathName,
   }))
 }

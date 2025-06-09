@@ -10,11 +10,13 @@ import { Label } from "@/components/ui/label"
 import { MapPin, Sun, Umbrella, Mountain } from 'lucide-react'
 import Link from 'next/link'
 
-import { ALL_DESTINATIONS } from '../all-destinations'
+import { ALL_DESTINATIONS } from '../../data/destinations'
+import { DestinationType, WeatherType } from '../../types'
+import { IMAGE_STYLES } from '../../constants/styles'
 
 export default function TravelFinder() {
-  const [typeFilter, setTypeFilter] = useState("all")
-  const [weatherFilter, setWeatherFilter] = useState("all")
+  const [typeFilter, setTypeFilter] = useState<DestinationType>("all")
+  const [weatherFilter, setWeatherFilter] = useState<WeatherType>("all")
   const [searchTerm, setSearchTerm] = useState("")
 
   const filteredDestinations = ALL_DESTINATIONS.filter(dest =>
@@ -39,7 +41,7 @@ export default function TravelFinder() {
         </div>
         <div>
           <Label htmlFor="type">Destination Type</Label>
-          <Select onValueChange={setTypeFilter} defaultValue="all">
+          <Select onValueChange={(value) => setTypeFilter(value as DestinationType)} defaultValue="all">
             <SelectTrigger id="type">
               <SelectValue placeholder="Select type" />
             </SelectTrigger>
@@ -54,7 +56,7 @@ export default function TravelFinder() {
         </div>
         <div>
           <Label htmlFor="weather">Weather</Label>
-          <Select onValueChange={setWeatherFilter} defaultValue="all">
+          <Select onValueChange={(value) => setWeatherFilter(value as WeatherType)} defaultValue="all">
             <SelectTrigger id="weather">
               <SelectValue placeholder="Select weather" />
             </SelectTrigger>
@@ -78,7 +80,7 @@ export default function TravelFinder() {
               alt={dest.name}
               width={300}
               height={200}
-              className="w-full h-48 object-cover"
+              className={IMAGE_STYLES.card}
               priority
             />
             <CardHeader>

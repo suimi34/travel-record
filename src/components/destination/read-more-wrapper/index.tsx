@@ -3,6 +3,8 @@
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import Image from "next/image";
+import { getMultipleSignedUrls } from "../../../services/api";
+import { IMAGE_STYLES } from "../../../constants/styles";
 
 const ReadMore = dynamic(() => import("../read-more"), { ssr: false });
 
@@ -11,35 +13,15 @@ export default function ReadMoreWrapper(props: { showReadMore: boolean; imageKey
   const [availableImageKeys, setAvailableImageKeys] = useState<string[]>(props.imageKeys);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Fetch signed URL from Lambda function because Next.js static export does not support server actions
-  const getSignedUrlLambda = async (key: string) => {
-    try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_S3_GET_SIGNED_URL_API_END_POINT}/getSignedUrl?key=${key}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-api-key': process.env.NEXT_PUBLIC_S3_GET_SIGNED_URL_API_KEY || '',
-        }
-      })
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-      return data.url;
-    } catch (error) {
-      console.error('Fetch error:', error);
-      throw error;
-    };
-  }
-
   const appendImageUrls = async () => {
     const appendingKeys = availableImageKeys.slice(0, 9);
-    const urls = await Promise.all(appendingKeys.map((key) => getSignedUrlLambda(key)));
+    const urls = await getMultipleSignedUrls(appendingKeys);
     const newImageUrls = [...imageUrls, ...urls];
     setImageUrls(newImageUrls);
     const remainingImageKeys = availableImageKeys.filter((key) => !appendingKeys.includes(key))
     setAvailableImageKeys(remainingImageKeys);
   }
+  
   const handleClick = async () => {
     setIsLoading(true);
     await appendImageUrls();
@@ -54,7 +36,7 @@ export default function ReadMoreWrapper(props: { showReadMore: boolean; imageKey
           <Image
             src={url}
             alt={`Image ${index + 1}`}
-            className="w-full h-[300px] object-cover rounded-lg"
+            className={IMAGE_STYLES.gallery}
             width={300}
             height={200}
           />
