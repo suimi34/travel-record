@@ -9,9 +9,10 @@ interface ReadMoreProps {
   showReadMore: boolean;
   isLoading: boolean;
   handleClick: () => void;
+  cityName: string;
 }
 
-export default function ReadMore({ showReadMore, isLoading, handleClick: onHandleClick }: ReadMoreProps) {
+export default function ReadMore({ showReadMore, isLoading, handleClick: onHandleClick, cityName }: ReadMoreProps) {
   const [isVisible, setIsVisible] = useState(false);
   const scrollY = useScrollPosition();
 
@@ -26,7 +27,7 @@ export default function ReadMore({ showReadMore, isLoading, handleClick: onHandl
   }, [scrollY, showReadMore]);
 
   const handleClick = () => {
-    sendGAEvent('event', 'read_more', { value: 'cityName' });
+    sendGAEvent('event', 'read_more', { value: cityName });
     onHandleClick();
   }
 

@@ -8,7 +8,7 @@ import { IMAGE_STYLES } from "../../../constants/styles";
 
 const ReadMore = dynamic(() => import("../read-more"), { ssr: false });
 
-export default function ReadMoreWrapper(props: { showReadMore: boolean; imageKeys: string[] }) {
+export default function ReadMoreWrapper(props: { showReadMore: boolean; imageKeys: string[]; cityName: string }) {
   const [imageUrls, setImageUrls] = useState<string[]>([]);
   const [availableImageKeys, setAvailableImageKeys] = useState<string[]>(props.imageKeys);
   const [isLoading, setIsLoading] = useState(false);
@@ -30,7 +30,7 @@ export default function ReadMoreWrapper(props: { showReadMore: boolean; imageKey
 
   return (
     <>
-      <ReadMore showReadMore={props.showReadMore} isLoading={isLoading} handleClick={handleClick} />
+      <ReadMore showReadMore={props.showReadMore} isLoading={isLoading} handleClick={handleClick} cityName={props.cityName} />
       {imageUrls.map((url, index) => (
         <div key={index} className="relative">
           <Image

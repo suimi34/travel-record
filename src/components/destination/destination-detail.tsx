@@ -63,7 +63,7 @@ export default async function Destination(props: { dest: Destination, imageKeys?
             />
           </div>
         ))}
-        <ReadMoreWrapper showReadMore={showReadMore} imageKeys={readMoreImageKeys} />
+        <ReadMoreWrapper showReadMore={showReadMore} imageKeys={readMoreImageKeys} cityName={dest.name} />
       </div>
     </div>
   )
