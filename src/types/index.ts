@@ -5,6 +5,7 @@ export interface Destination {
   weather: string;
   image: string;
   pathName: string;
+  population: number;
 }
 
 export type DestinationType =

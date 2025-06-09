@@ -13,6 +13,7 @@ import Link from 'next/link'
 import { ALL_DESTINATIONS } from '../../data/destinations'
 import { DestinationType, WeatherType } from '../../types'
 import { IMAGE_STYLES } from '../../constants/styles'
+import { formatPopulation } from '../../utils/format'
 
 export default function TravelFinder() {
   const [typeFilter, setTypeFilter] = useState<DestinationType>("all")
@@ -97,6 +98,7 @@ export default function TravelFinder() {
             </CardHeader>
             <CardContent>
               <p>Weather: {dest.weather.charAt(0).toUpperCase() + dest.weather.slice(1)}</p>
+              <p className="text-sm text-gray-600">Population: {formatPopulation(dest.population)}</p>
             </CardContent>
             <CardFooter>
               <Link href={`/city/${dest.pathName}`}>

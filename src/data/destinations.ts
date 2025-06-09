@@ -25,6 +25,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     type: "city",
     weather: "varied",
     image: SEOUL_IMAGE,
+    population: 9720846,
   },
   {
     id: 2,
@@ -33,6 +34,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     type: "beach",
     weather: "tropical",
     image: KYUFUN_IMAGE,
+    population: 5500,
   },
   {
     id: 3,
@@ -41,6 +43,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     type: "beach",
     weather: "tropical",
     image: CEBU_IMAGE,
+    population: 922611,
   },
   {
     id: 4,
@@ -49,6 +52,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     type: "beach",
     weather: "tropical",
     image: MANILA_IMAGE,
+    population: 13484462,
   },
   {
     id: 5,
@@ -57,6 +61,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     type: "city",
     weather: "cold",
     image: VANCOUVER_IMAGE,
+    population: 2426160,
   },
   {
     id: 6,
@@ -65,6 +70,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     type: "city",
     weather: "cold",
     image: SEATTLE_IMAGE,
+    population: 3979845,
   },
   {
     id: 7,
@@ -73,6 +79,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     type: "city",
     weather: "cold",
     image: PORTLAND_IMAGE,
+    population: 2512859,
   },
   {
     id: 8,
@@ -81,6 +88,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     type: "city",
     weather: "mediterranean",
     image: SAN_FRANCISCO_IMAGE,
+    population: 4749008,
   },
   {
     id: 9,
@@ -89,6 +97,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     type: "city",
     weather: "mediterranean",
     image: SAN_JOSE_IMAGE,
+    population: 2000468,
   },
   {
     id: 10,
@@ -97,6 +106,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     type: "city",
     weather: "mediterranean",
     image: LOS_ANGELS_IMAGE,
+    population: 12997353,
   },
   {
     id: 11,
@@ -105,6 +115,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     type: "city",
     weather: "varied",
     image: WASHINGTON_DC_IMAGE,
+    population: 6385162,
   },
   {
     id: 12,
@@ -113,6 +124,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     type: "city",
     weather: "varied",
     image: NEW_YORK_IMAGE,
+    population: 20140470,
   },
   {
     id: 13,
@@ -121,6 +133,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     type: "city",
     weather: "varied",
     image: BOSTON_IMAGE,
+    population: 4919179,
   },
   {
     id: 14,
@@ -129,6 +142,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     type: "city",
     weather: "tropical",
     image: MEXICO_CITY_IMAGE,
+    population: 21804515,
   },
   {
     id: 15,
@@ -137,6 +151,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     type: "city",
     weather: "tropical",
     image: HABANA_IMAGE,
+    population: 2132183,
   },
   {
     id: 16,
@@ -145,5 +160,6 @@ export const ALL_DESTINATIONS: Destination[] = [
     type: "beach",
     weather: "tropical",
     image: CANCUN_IMAGE,
+    population: 888797,
   },
 ];
