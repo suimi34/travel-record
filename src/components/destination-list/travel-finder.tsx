@@ -10,10 +10,10 @@ import { Label } from "@/components/ui/label"
 import { MapPin, Sun, Umbrella, Mountain } from 'lucide-react'
 import Link from 'next/link'
 
-import { ALL_DESTINATIONS } from '../../data/destinations'
-import { DestinationType, WeatherType } from '../../types'
-import { IMAGE_STYLES } from '../../constants/styles'
-import { formatPopulation } from '../../utils/format'
+import { ALL_DESTINATIONS } from '@/src/data/destinations'
+import { DestinationType, WeatherType } from '@/src/types'
+import { IMAGE_STYLES } from '@/src/constants/styles'
+import { formatPopulation } from '@/src/utils/format'
 
 export default function TravelFinder() {
   const [typeFilter, setTypeFilter] = useState<DestinationType>("all")

@@ -3,9 +3,9 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Image from 'next/image';
 import { getSignedUrl } from "@/lib/s3";
-import ReadMoreWrapper from "./read-more-wrapper";
-import type { Destination } from "../../types";
-import { IMAGE_STYLES } from "../../constants/styles";
+import ReadMoreWrapper from "@/src/components/destination/read-more-wrapper";
+import type { Destination } from "@/src/types";
+import { IMAGE_STYLES } from "@/src/constants/styles";
 
 export default async function Destination(props: { dest: Destination, imageKeys?: string[] }) {
   const { dest, imageKeys } = props;

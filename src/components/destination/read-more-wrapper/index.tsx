@@ -1,12 +1,10 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { useState } from "react";
 import Image from "next/image";
-import { getMultipleSignedUrls } from "../../../services/api";
-import { IMAGE_STYLES } from "../../../constants/styles";
-
-const ReadMore = dynamic(() => import("../read-more"), { ssr: false });
+import { getMultipleSignedUrls } from "@/src/services/api";
+import { IMAGE_STYLES } from "@/src/constants/styles";
+import ReadMore from "@/src/components/destination/read-more";
 
 export default function ReadMoreWrapper(props: { showReadMore: boolean; imageKeys: string[]; cityName: string }) {
   const [imageUrls, setImageUrls] = useState<string[]>([]);
@@ -21,7 +19,7 @@ export default function ReadMoreWrapper(props: { showReadMore: boolean; imageKey
     const remainingImageKeys = availableImageKeys.filter((key) => !appendingKeys.includes(key))
     setAvailableImageKeys(remainingImageKeys);
   }
-  
+
   const handleClick = async () => {
     setIsLoading(true);
     await appendImageUrls();

@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import useScrollPosition from "../../../hooks/use-scroll-position";
+import useScrollPosition from "@/src/hooks/use-scroll-position";
 import { sendGAEvent } from "@next/third-parties/google";
-import { BUTTON_STYLES } from "../../../constants/styles";
+import { BUTTON_STYLES } from "@/src/constants/styles";
 
 interface ReadMoreProps {
   showReadMore: boolean;
