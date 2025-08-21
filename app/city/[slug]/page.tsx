@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com"),
+    metadataBase: new URL(process.env.SITE_URL ?? "https://example.com"),
     title: `${dest.name} - Travel Record`,
     description: `Explore ${dest.name} with photos and travel memories. Population: ${dest.population.toLocaleString()}`,
     keywords: [dest.name, dest.type, dest.weather, 'travel', 'photos'],
