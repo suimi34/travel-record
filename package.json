@@ -39,6 +39,6 @@
     "postcss": "^8.5.6",
     "serve": "^14.2.4",
     "tailwindcss": "^4.1.12",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   }
 }
