@@ -44,6 +44,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: "The requested city could not be found.",
     }
   }
+  console.log(process.env.SITE_URL)
 
   return {
     metadataBase: new URL(process.env.SITE_URL ?? "https://example.com"),
