@@ -31,6 +31,7 @@ jobs:
           SITE_URL: ${{ secrets.SITE_URL }}
         run: |
           node --version
+          rm -rf .next/cache
           npm clean-install --progress=false
           npx next build
       - name: Publish
