@@ -8,7 +8,10 @@ import {
   Marker,
   Line,
   ZoomableGroup,
-} from "react-simple-maps";
+  createCoordinates,
+  createLongitude,
+  createLatitude,
+} from "@vnedyalk0v/react19-simple-maps";
 import { ALL_DESTINATIONS } from "@/src/data/destinations";
 import { MAP_STYLES } from "@/src/constants/styles";
 import { Destination } from "@/src/types";
@@ -25,7 +28,10 @@ export default function WorldMap() {
   const [hoveredDestination, setHoveredDestination] =
     useState<Destination | null>(null);
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
-  const [position, setPosition] = useState({ coordinates: [-30, 30] as [number, number], zoom: 1 });
+  const [position, setPosition] = useState({
+    coordinates: [createLongitude(-30), createLatitude(30)] as [any, any],
+    zoom: 1
+  });
 
   const handleZoomIn = useCallback(() => {
     setPosition((pos) => ({ ...pos, zoom: Math.min(pos.zoom * 1.5, MAX_ZOOM) }));
@@ -35,7 +41,7 @@ export default function WorldMap() {
     setPosition((pos) => ({ ...pos, zoom: Math.max(pos.zoom / 1.5, MIN_ZOOM) }));
   }, []);
 
-  const handleMoveEnd = useCallback((position: { coordinates: [number, number]; zoom: number }) => {
+  const handleMoveEnd = useCallback((position: any) => {
     setPosition(position);
   }, []);
 
@@ -66,7 +72,7 @@ export default function WorldMap() {
           projection="geoMercator"
           projectionConfig={{
             scale: 120,
-            center: [0, 30],
+            center: createCoordinates(0, 30),
           }}
           style={{ width: "100%", height: "100%" }}
         >
@@ -99,10 +105,13 @@ export default function WorldMap() {
               return (
                 <Line
                   key={`route-${destination.id}`}
-                  from={[destination.coordinates.lng, destination.coordinates.lat]}
+                  from={[
+                    createLongitude(destination.coordinates.lng),
+                    createLatitude(destination.coordinates.lat)
+                  ]}
                   to={[
-                    nextDestination.coordinates.lng,
-                    nextDestination.coordinates.lat,
+                    createLongitude(nextDestination.coordinates.lng),
+                    createLatitude(nextDestination.coordinates.lat),
                   ]}
                   stroke="hsl(var(--primary))"
                   strokeWidth={1.5 / position.zoom}
@@ -117,8 +126,8 @@ export default function WorldMap() {
               <Marker
                 key={destination.id}
                 coordinates={[
-                  destination.coordinates.lng,
-                  destination.coordinates.lat,
+                  createLongitude(destination.coordinates.lng),
+                  createLatitude(destination.coordinates.lat),
                 ]}
               >
                 <circle
