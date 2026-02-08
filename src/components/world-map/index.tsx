@@ -17,7 +17,7 @@ import { MAP_STYLES } from "@/src/constants/styles";
 import { Destination } from "@/src/types";
 import DestinationTooltip from "./destination-tooltip";
 
-const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+const GEO_URL = "/world-atlas-countries-110m.json";
 
 const MARKER_COLOR = "hsl(var(--primary))";
 const MIN_ZOOM = 1;
