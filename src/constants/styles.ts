@@ -22,3 +22,12 @@ export const HERO_STYLES = {
   content: "relative z-10 h-full flex flex-col items-center justify-center text-white text-center",
   scrollIndicator: "absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce",
 } as const;
+
+export const MAP_STYLES = {
+  container: "relative w-full bg-muted/50 rounded-lg overflow-hidden",
+  wrapper: "aspect-[4/3] md:aspect-[16/9] lg:aspect-[21/9]",
+  geography: "fill-secondary stroke-border stroke-[0.5px] outline-none",
+  marker: "cursor-pointer transition-transform hover:scale-125",
+  routeLine: "stroke-primary/50 stroke-[1.5px] fill-none",
+  tooltip: "absolute z-50 w-64 shadow-lg",
+} as const;

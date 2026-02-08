@@ -26,6 +26,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     weather: "varied",
     image: SEOUL_IMAGE,
     population: 9720846,
+    coordinates: { lat: 37.5665, lng: 126.978 },
   },
   {
     id: 2,
@@ -35,6 +36,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     weather: "tropical",
     image: KYUFUN_IMAGE,
     population: 5500,
+    coordinates: { lat: 25.1089, lng: 121.8443 },
   },
   {
     id: 3,
@@ -44,6 +46,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     weather: "tropical",
     image: CEBU_IMAGE,
     population: 922611,
+    coordinates: { lat: 10.3157, lng: 123.8854 },
   },
   {
     id: 4,
@@ -53,6 +56,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     weather: "tropical",
     image: MANILA_IMAGE,
     population: 13484462,
+    coordinates: { lat: 14.5995, lng: 120.9842 },
   },
   {
     id: 5,
@@ -62,6 +66,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     weather: "cold",
     image: VANCOUVER_IMAGE,
     population: 2426160,
+    coordinates: { lat: 49.2827, lng: -123.1207 },
   },
   {
     id: 6,
@@ -71,6 +76,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     weather: "cold",
     image: SEATTLE_IMAGE,
     population: 3979845,
+    coordinates: { lat: 47.6062, lng: -122.3321 },
   },
   {
     id: 7,
@@ -80,6 +86,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     weather: "cold",
     image: PORTLAND_IMAGE,
     population: 2512859,
+    coordinates: { lat: 45.5155, lng: -122.6789 },
   },
   {
     id: 8,
@@ -89,6 +96,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     weather: "mediterranean",
     image: SAN_FRANCISCO_IMAGE,
     population: 4749008,
+    coordinates: { lat: 37.7749, lng: -122.4194 },
   },
   {
     id: 9,
@@ -98,6 +106,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     weather: "mediterranean",
     image: SAN_JOSE_IMAGE,
     population: 2000468,
+    coordinates: { lat: 37.3382, lng: -121.8863 },
   },
   {
     id: 10,
@@ -107,6 +116,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     weather: "mediterranean",
     image: LOS_ANGELS_IMAGE,
     population: 12997353,
+    coordinates: { lat: 34.0522, lng: -118.2437 },
   },
   {
     id: 11,
@@ -116,6 +126,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     weather: "varied",
     image: WASHINGTON_DC_IMAGE,
     population: 6385162,
+    coordinates: { lat: 38.9072, lng: -77.0369 },
   },
   {
     id: 12,
@@ -125,6 +136,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     weather: "varied",
     image: NEW_YORK_IMAGE,
     population: 20140470,
+    coordinates: { lat: 40.7128, lng: -74.006 },
   },
   {
     id: 13,
@@ -134,6 +146,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     weather: "varied",
     image: BOSTON_IMAGE,
     population: 4919179,
+    coordinates: { lat: 42.3601, lng: -71.0589 },
   },
   {
     id: 14,
@@ -143,6 +156,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     weather: "tropical",
     image: MEXICO_CITY_IMAGE,
     population: 21804515,
+    coordinates: { lat: 19.4326, lng: -99.1332 },
   },
   {
     id: 15,
@@ -152,6 +166,7 @@ export const ALL_DESTINATIONS: Destination[] = [
     weather: "tropical",
     image: HABANA_IMAGE,
     population: 2132183,
+    coordinates: { lat: 23.1136, lng: -82.3666 },
   },
   {
     id: 16,
@@ -161,5 +176,6 @@ export const ALL_DESTINATIONS: Destination[] = [
     weather: "tropical",
     image: CANCUN_IMAGE,
     population: 888797,
+    coordinates: { lat: 21.1619, lng: -86.8515 },
   },
 ];

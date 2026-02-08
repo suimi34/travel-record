@@ -12,6 +12,11 @@ export type WeatherTypeValue =
   | "cold"
   | "varied";
 
+export interface Coordinates {
+  lat: number;
+  lng: number;
+}
+
 export interface Destination {
   id: number;
   name: string;
@@ -20,6 +25,7 @@ export interface Destination {
   image: string;
   pathName: string;
   population: number;
+  coordinates: Coordinates;
 }
 
 // フィルター用の型（"all"を含む）
