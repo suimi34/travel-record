@@ -16,8 +16,7 @@ import { ALL_DESTINATIONS } from "@/src/data/destinations";
 import { MAP_STYLES } from "@/src/constants/styles";
 import { Destination } from "@/src/types";
 import DestinationTooltip from "./destination-tooltip";
-
-const GEO_URL = "/world-atlas-countries-110m.json";
+import geoData from "@/src/data/world-atlas-countries-110m.json";
 
 const MARKER_COLOR = "hsl(var(--primary))";
 const MIN_ZOOM = 1;
@@ -83,11 +82,11 @@ export default function WorldMap() {
             minZoom={MIN_ZOOM}
             maxZoom={MAX_ZOOM}
           >
-            <Geographies geography={GEO_URL}>
+            <Geographies geography={geoData}>
               {({ geographies }) =>
-                geographies.map((geo) => (
+                geographies.map((geo, index) => (
                   <Geography
-                    key={geo.rsmKey}
+                    key={geo.rsmKey || index}
                     geography={geo}
                     className={MAP_STYLES.geography}
                     style={{
