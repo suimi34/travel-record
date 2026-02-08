@@ -14,3 +14,11 @@ export const IMAGE_STYLES = {
   hero: "w-full h-[400px] object-cover rounded-lg",
   card: "w-full h-48 object-cover",
 } as const;
+
+export const HERO_STYLES = {
+  container: "relative h-[70vh] w-full overflow-hidden",
+  image: "absolute inset-0 w-full h-full object-cover transition-opacity duration-1000",
+  overlay: "absolute inset-0 bg-black/40",
+  content: "relative z-10 h-full flex flex-col items-center justify-center text-white text-center",
+  scrollIndicator: "absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce",
+} as const;
