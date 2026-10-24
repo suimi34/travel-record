@@ -7,6 +7,10 @@ import ReadMoreWrapper from "@/src/components/destination/read-more-wrapper";
 import type { Destination } from "@/src/types";
 import { IMAGE_STYLES } from "@/src/constants/styles";
 
+function shuffle<T>(items: T[]): T[] {
+  return [...items].sort(() => Math.random() - 0.5);
+}
+
 export default async function Destination(props: { dest: Destination, imageKeys?: string[] }) {
   const { dest, imageKeys } = props;
 
@@ -15,8 +19,7 @@ export default async function Destination(props: { dest: Destination, imageKeys?
   let showReadMore = false;
 
   if (imageKeys && imageKeys.length > 0) {
-    // shuffle
-    const shuffledImagesKeys = [...imageKeys].sort(() => Math.random() - 0.5);
+    const shuffledImagesKeys = shuffle(imageKeys);
     for (let i = 0; i < 9; i++) {
       const key = shuffledImagesKeys.shift();
       if (key) {
