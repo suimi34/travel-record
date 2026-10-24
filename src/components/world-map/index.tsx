@@ -15,6 +15,7 @@ import {
 import { ALL_DESTINATIONS } from "@/src/data/destinations";
 import { MAP_STYLES } from "@/src/constants/styles";
 import { Destination } from "@/src/types";
+import type { Position } from "@vnedyalk0v/react19-simple-maps";
 import DestinationTooltip from "./destination-tooltip";
 import geoData from "@/src/data/world-atlas-countries-110m.json";
 
@@ -27,8 +28,8 @@ export default function WorldMap() {
   const [hoveredDestination, setHoveredDestination] =
     useState<Destination | null>(null);
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
-  const [position, setPosition] = useState({
-    coordinates: [createLongitude(-30), createLatitude(30)] as [any, any],
+  const [position, setPosition] = useState<Position>({
+    coordinates: [createLongitude(-30), createLatitude(30)],
     zoom: 1
   });
 
@@ -40,7 +41,7 @@ export default function WorldMap() {
     setPosition((pos) => ({ ...pos, zoom: Math.max(pos.zoom / 1.5, MIN_ZOOM) }));
   }, []);
 
-  const handleMoveEnd = useCallback((position: any) => {
+  const handleMoveEnd = useCallback((position: Position) => {
     setPosition(position);
   }, []);
 

@@ -1,7 +1,6 @@
 'use client';
 
-import { useEffect, useState } from "react";
-import useScrollPosition from "@/src/hooks/use-scroll-position";
+import useIsNearBottom from "@/src/hooks/use-is-near-bottom";
 import { sendGAEvent } from "@next/third-parties/google";
 import { BUTTON_STYLES } from "@/src/constants/styles";
 
@@ -13,18 +12,8 @@ interface ReadMoreProps {
 }
 
 export default function ReadMore({ showReadMore, isLoading, handleClick: onHandleClick, cityName }: ReadMoreProps) {
-  const [isVisible, setIsVisible] = useState(false);
-  const scrollY = useScrollPosition();
-
-  useEffect(() => {
-    const currentHeight = scrollY + window.innerHeight;
-
-    if (showReadMore && (document.documentElement.scrollHeight - currentHeight < 300)) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  }, [scrollY, showReadMore]);
+  const isNearBottom = useIsNearBottom(300);
+  const isVisible = showReadMore && isNearBottom;
 
   const handleClick = () => {
     sendGAEvent('event', 'read_more', { value: cityName });

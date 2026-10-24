@@ -7,10 +7,13 @@ const subscribe = (callback: () => void) => {
   };
 };
 
-export default function useScrollPosition() {
+export default function useIsNearBottom(threshold: number) {
   return useSyncExternalStore(
     subscribe,
-    () => window.pageYOffset,
-    () => 0
+    () =>
+      document.documentElement.scrollHeight -
+        (window.pageYOffset + window.innerHeight) <
+      threshold,
+    () => false
   );
 }
